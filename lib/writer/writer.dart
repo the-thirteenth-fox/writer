@@ -5,14 +5,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as quill;
 import 'package:flutter_quill_extensions/flutter_quill_extensions.dart';
 
+final quillController = quill.QuillController.basic();
+ScrollController scrollController = ScrollController();
+
 class Writer extends StatelessWidget {
   const Writer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final quillController = quill.QuillController.basic();
-    ScrollController scrollController = ScrollController();
-
     void showInfo(String text) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
     }
@@ -69,7 +69,7 @@ class Writer extends StatelessWidget {
                   readOnly: false,
                   scrollController: scrollController,
                   scrollBottomInset: 35,
-                  scrollable: false,
+                  scrollable: true,
                   focusNode: FocusNode(),
                   expands: false,
                   padding: EdgeInsets.zero,
